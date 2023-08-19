@@ -27,7 +27,18 @@
     ```
     php artisan make:model NomeModel -m
     ```
-    
+
+  - Criar de um Model/Controller/Migrations
+    ```
+    php artisan make:model --migration --controller --resource Nomemodel
+    ```
+   
+    ```
+    php artisan make:model -mcr Nomemodel 
+    ```
+     ```
+    php artisan make:model --all Nomemodel 
+    ```
 ## Criar Arquivo de Migração para o Banco de Dados ##
 
     php artisan migrate
