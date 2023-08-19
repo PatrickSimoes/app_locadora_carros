@@ -1,0 +1,20 @@
+version: '3.1'
+
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    container_name: locadora_carros
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: lc
+      MYSQL_USER: kyouma
+      MYSQL_PASSWORD: tuturu
+    volumes:
+      - locadora_carros:/var/lib/mysql
+    ports:
+      - "5001:3306"
+
+volumes:
+  locadora_carros:
+    name: mysql_data_locadora_carros
