@@ -89,3 +89,9 @@
     ```
     php artisan db:seed --class=NomeClassSeeder
     ```
+
+## Cria um link para ver arquivos Locais files ##
+
+  php artisan storage:link 
+  
+  <!-- /storage/pasta/nome_arquivo.png -->
