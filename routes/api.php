@@ -3,6 +3,11 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\CarroController;
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\LocacaoController;
+use App\Http\Controllers\MarcaController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -24,9 +29,9 @@ app\Providers\RouteServiceProvider.php
 protected $namespace = 'App\\Http\\Controllers'; 
 */
 
-//Route::resource('cliente','App\Http\Controllers\ClienteController'); --esse modelo tem o create e edite. 
-Route::apiResource('cliente','App\Http\Controllers\ClienteController');
-Route::apiResource('carro','App\Http\Controllers\CarroController');
-Route::apiResource('locacao','App\Http\Controllers\LocacaoController');
-Route::apiResource('marca','App\Http\Controllers\MarcaController');
-Route::apiResource('modelo','App\Http\Controllers\ClienteController');
+//Route::resource('cliente', ClienteController::class); --esse modelo tem o create e edite. 
+Route::apiResource('cliente', ClienteController::class);
+Route::apiResource('carro', CarroController::class);
+Route::apiResource('locacao', LocacaoController::class);
+Route::apiResource('marca', MarcaController::class);
+Route::apiResource('modelo', ClienteController::class);
