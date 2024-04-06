@@ -36,4 +36,9 @@ class Modelo extends Model
             3) id do registro que será desconsiderado na pesquisa
         */
     }
+
+    public function marca() {
+        //PERTENCE a 
+        return $this->belongsTo(Marca::class);
+    }
 }
