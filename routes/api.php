@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\CarroController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\LocacaoController;
@@ -30,9 +30,17 @@ app\Providers\RouteServiceProvider.php
 protected $namespace = 'App\\Http\\Controllers'; 
 */
 
-//Route::resource('cliente', ClienteController::class); --esse modelo tem o create e edite. 
-Route::apiResource('cliente', ClienteController::class);
-Route::apiResource('carro', CarroController::class);
-Route::apiResource('locacao', LocacaoController::class);
-Route::apiResource('marca', MarcaController::class);
-Route::apiResource('modelo', ModeloController::class);
+//Route::resource('cliente', ClienteController::class); --esse modelo tem o create e edite.
+Route::prefix('v1')->middleware('jwt.auth')->group(function() {
+    Route::post('me', [AuthController::class, 'me']);
+    Route::post('refresh', [AuthController::class, 'refresh']);
+    Route::post('logout', [AuthController::class, 'logout']);
+
+    Route::apiResource('cliente', ClienteController::class);
+    Route::apiResource('carro', CarroController::class);
+    Route::apiResource('locacao', LocacaoController::class);
+    Route::apiResource('marca', MarcaController::class);
+    Route::apiResource('modelo', ModeloController::class);
+});
+
+Route::post('login', [AuthController::class, 'login']);
